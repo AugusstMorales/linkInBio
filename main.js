@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         colorMode: "lerp",
         birdSize: 0.60,
         separation: 61.00,
-        quantity: 3.00,
+        quantity: 4.00,
         backgroundAlpha: 0.0
     });
 

@@ -101,11 +101,10 @@ body {
 
 .profile-name {
     margin-top: 16px;
-    font-size: 40px;
-    font-style: normal;
+    font-size: 45px;
     font-weight: 600;
     letter-spacing: -0.5px;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px 4px black;
 }
 
 
@@ -118,9 +117,9 @@ body {
 
 .link {
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 0.5px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(100%);
+    border: 0.5px solid rgba(43, 43, 43, 0.185);
     border-radius: 14px;
     padding: 16px 20px;
     display: flex;

@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
-        color1: 0xe1ff00,
-        color2: 0xff8100,
+        color1: 0xff82,
+        color2: 0xffee00,
         colorMode: "lerp",
         birdSize: 0.60,
         separation: 61.00,
-        quantity: 4.00,
+        quantity: 2.10,
         backgroundAlpha: 0.0
     });
 

@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <!-- Document metadata -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal LinkTree for Augustt Morales, developer and creator. Explore my portfolio and socials.">
   <meta name="keywords" content="Augustt Morales, LinkTree, developer, portfolio, social media">
   <meta name="author" content="Augustt Morales">
-  <title>Augusst M. - LinkTree</title>
-  <link rel="icon" type="image/x-icon" href="Images/icos/linkbio.ico">
-
+  <title>Augusst M. - LinkBio</title>
+  <link rel="icon" type="image/x-icon" href="assets/Images/icos/linkbio.ico">
 
   <!-- External styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
   <!-- Animated background -->
   <div id="vanta-container"></div>
@@ -26,21 +27,26 @@
   <main class="container">
     <header class="profile">
       <div class="profile-img-container">
-        <img src="Images/profile/UserProfile.jpg" alt="Profile picture of Augustt Morales" class="profile-img">
+        <img src="assets/Images/profile/UserProfile.jpg" alt="Profile picture of Augustt Morales" class="profile-img">
       </div>
       <h1 class="profile-name">Augusst M.</h1>
-      <p class="profile-quote"><em>“Clarity is power. Precision is respect. And purpose, the only fuel worth burning.”</em></p>
+      <p class="profile-quote"><em>Hi, I’m August. A software engineer who enjoys building with Linux and macOS. Feel free to follow along.</em></p>
     </header>
 
-    <!-- Social and portfolio links -->
-    <section class="links">
-      <a href="#" target="_blank" rel="noopener noreferrer" class="link">
-        <div class="link-icon">
-          <i class="fa fa-terminal" aria-hidden="true"></i>
-        </div>
-        <span class="link-text">Explore My Work</span>
-      </a>
+    <!--CardPortfolio link-->
+    <section class="card-portfolio">
+      <div class="portfolio-left">
+        <h2 class="porfoliotiitle">Visit</h2>
+        <h3 class="porfoliosubtiitle">My Portfolio</h3>
+        <a href="" class="portfolio-quote"> Discover the details &nbsp;<i class="fa-solid fa-right-long fa-bounce"></i></a>
+      </div>
+      <div class="portfolio-right">
+        <a href="" class="portfolio-quote"> I’m Building ... </a>
+      </div>
+    </section>
 
+    <!-- Social links -->
+    <section class="links">
       <a href="https://www.instagram.com/augusst_morales/" target="_blank" rel="noopener noreferrer" class="link">
         <div class="link-icon">
           <i class="fab fa-instagram"></i>
@@ -69,13 +75,14 @@
 
     <!-- Footer -->
     <footer>
-      <p>From the Mind of August M. &nbsp; <i class="fa-solid fa-registered fa-bounce" aria-hidden="true"></i></p>
+      <p><i class="fa-solid fa-registered fa-beat"></i> &nbsp; From the Mind of August M.</p>
     </footer>
   </main>
 
   <!-- External scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js" defer></script>
-  <script src="main.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/atmosphere.js"></script>
 </body>
 </html>

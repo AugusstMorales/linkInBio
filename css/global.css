@@ -1,3 +1,4 @@
+/* linkInBio/css/global.css */
 /* Custom properties */
 :root {
     --glass-bg: rgba(255, 255, 255, 0.04); /* Reducir opacidad para más transparencia */
@@ -244,18 +245,6 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
 }
 
-.portfolio-left {
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.2px;
-}
-
-.portfolio-right {
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.2px;
-}
-
 /* Ensure same width as links */
 .card-portfolio {
     width: 100%;
@@ -289,9 +278,114 @@ footer {
     font-weight:900;
   }
 
-  .porfoliosubtiitle{
+  .downloadcode{
+    text-decoration: none;
     font-style: normal;
-    font-size: 1.4rem;
-    color: #cccccc;
-    font-weight:500;
+    color: #ffffff;
+    font-weight:700;
   }
+
+  /* SoundCloud Player */
+.soundcloud-player {
+    margin: 16px 0;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    z-index: 3;
+}
+
+.player-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur)) saturate(200%);
+    -webkit-backdrop-filter: blur(var(--blur)) saturate(100%);
+    border: 0.5px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.player-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.player-container iframe {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.player-caption {
+    font-size: 12px;
+    color: var(--secondary-text-color);
+    text-align: center;
+    margin-top: 8px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+
+.player-caption a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.player-caption a:hover {
+    color: #cccccc;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 16px;
+    }
+
+    .profile-img-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-name {
+        font-size: 20px;
+    }
+
+    .link {
+        padding: 14px 18px;
+    }
+
+    .card-portfolio {
+        flex-direction: column;
+        gap: 16px;
+        padding: 14px 18px;
+    }
+
+    .portfolio-left,
+    .portfolio-right {
+        text-align: center;
+    }
+
+    .soundcloud-player {
+        margin: 12px 0;
+    }
+
+    .player-container {
+        padding: 12px;
+    }
+
+    .player-container iframe {
+        height: 250px;
+    }
+}

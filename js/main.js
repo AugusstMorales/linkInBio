@@ -1,3 +1,4 @@
+// linkInBio/js/main.js
 // Initialize page functionality on DOM load
 document.addEventListener('DOMContentLoaded', function() {
     // Configure Vanta Birds background effect

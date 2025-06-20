@@ -1,230 +1,350 @@
-/* ===== ESTILOS GLOBALES ===== */
+/* ===== ESTILOS GLOBALES - LIQUID GLASS ===== */
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.15);
-    --text-color: #ffffff;
-    --secondary-text: #e0e0e0; /* Mejor contraste */
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    --blur: 12px;
+  --glass-bg-light: rgba(255, 255, 255, 0.1); /* Más translúcido */
+  --glass-bg-dark: rgba(20, 30, 50, 0.2); /* Azul profundo inspirado en macOS */
+  --glass-border-light: rgba(255, 255, 255, 0.15);
+  --glass-border-dark: rgba(255, 255, 255, 0.05);
+  --text-color-light: #ffffff;
+  --text-color-dark: #e6e6ea;
+  --secondary-text-light: #d0d0ff;
+  --secondary-text-dark: #d6d6d6;
+  --shadow-light: 0 8px 28px rgba(0, 10, 30, 0.15);
+  --shadow-dark: 0 8px 28px rgba(0, 20, 50, 0.3);
+  --blur: 1.2em; /* Desenfoque más intenso */
+  --highlight: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(100, 150, 255, 0.25) 50%, rgba(255, 255, 255, 0.05) 100%);
+  --highlight-secondary: linear-gradient(45deg, rgba(100, 150, 255, 0.2), rgba(255, 255, 255, 0.1));
+}
+
+/* Tema claro */
+@media (prefers-color-scheme: light) {
+  :root {
+    --glass-bg: var(--glass-bg-light);
+    --glass-border: var(--glass-border-light);
+    --text-color: var(--text-color-light);
+    --secondary-text: var(--secondary-text-light);
+    --shadow: var(--shadow-light);
   }
-  
-  /* Reset Apple-like */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Tema oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass-bg: var(--glass-bg-dark);
+    --glass-border: var(--glass-border-dark);
+    --text-color: var(--text-color-dark);
+    --secondary-text: var(--secondary-text-dark);
+    --shadow: var(--shadow-dark);
   }
-  
-  body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #111;
-    color: var(--text-color);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  /* Fondo animado */
-  #vanta-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #000;
-  }
-  
-  /* Contenedor principal  */
-  .container {
-    width: 100%;
-    max-width: 500px;
-    padding: 24px;
-    z-index: 2;
-  }
-  
-  /* Profile section */
-  .profile {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-  
-  .profile-img-container {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid var(--glass-border);
-  }
-  
-  .profile-name {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
-  }
-  
-  .profile-quote {
-    font-size: 16px;
-    color: var(--secondary-text);
-    line-height: 1.5;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-  
-  /* Links (estilo botones iOS) */
-  .links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .link {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--blur));
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: var(--text-color);
-  }
-  
-  .link:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.12);
-  }
-  
-  .link-icon {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 16px;
-    font-size: 18px;
-  }
-  
-  .link-text {
-    font-weight: 500;
-    font-size: 16px;
-  }
-  
-  /* SoundCloud Player */
-  .soundcloud-player {
-    margin: 24px 0;
-  }
-  
-  .player-container {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--blur));
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .player-container iframe {
-    width: 100%;
-    border: none;
-  }
-  
-  /* Footer  */
-  footer {
-    margin-top: 32px;
-    text-align: center;
-    font-size: 14px;
-    color: var(--secondary-text);
-  }
-  
-  .footer-link {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .footer-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 600px) {
-    .container {
-      padding: 20px;
-    }
-  
-    .profile-img-container {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .profile-name {
-      font-size: 24px;
-    }
-  
-    .profile-quote {
-      font-size: 14px;
-    }
-  
-    .link {
-      padding: 14px;
-    }
+}
+
+/* Reset Apple-like */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* Fondo animado */
+#vanta-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #000;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+#vanta-container.loaded {
+  opacity: 1;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 550px;
+  padding: 24px;
+  z-index: 2;
+  perspective: 1500px; /* Profundidad aumentada */
+}
+
+/* Profile section */
+.profile {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.profile-img-container {
+  width: 135px;
+  height: 135px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--glass-border);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.profile-quote {
+  font-size: 16px;
+  color: var(--secondary-text);
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Links (estilo Liquid Glass macOS 26 mejorado) */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Más espaciado para elegancia */
+}
+
+.link {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px; /* Bordes más redondeados */
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  box-shadow: var(--shadow);
+  transform: translateZ(15px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--highlight);
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--highlight-secondary);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.link:hover::before {
+  opacity: 0.45;
+  transform: rotate(45deg) translate(25%, 25%);
+}
+
+.link:hover::after {
+  opacity: 0.3;
+}
+
+.link:hover {
+  transform: translateY(-4px) translateZ(30px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 36px rgba(0, 20, 50, 0.35);
+}
+
+/* Efecto de inclinación basado en el cursor */
+.link[data-tilt] {
+  transition: transform 0.2s ease;
+}
+
+.link-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  font-size: 18px;
+  transform: translateZ(10px);
+  transition: transform 0.4s ease;
+}
+
+.link:hover .link-icon {
+  transform: translateZ(15px);
+}
+
+.link-text {
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
+}
+
+.link:hover .link-text {
+  color: #f5f5ff; /* Blanco azulado brillante */
+  transform: translateY(-1px) scale(1.02); /* Escalado sutil */
+  text-shadow: 0 0 6px rgba(100, 150, 255, 0.4); /* Brillo más pronunciado */
+}
+
+/* SoundCloud Player */
+.soundcloud-player {
+  margin: 24px 0;
+}
+
+.player-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transform: translateZ(10px);
+  position: relative;
+}
+
+.player-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--highlight);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.player-container:hover::before {
+  opacity: 0.3;
+}
+
+.player-container iframe {
+  width: 100%;
+  border: none;
+}
+
+/* Footer */
+footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--secondary-text);
+}
+
+.footer-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Respaldo para navegadores sin backdrop-filter */
+@supports not (backdrop-filter: blur(1.2em)) {
+  .link, .player-container {
+    background: rgba(255, 255, 255, 0.08); /* Fallback claro */
   }
 
-    /* ===== PRELOADER & ANIMATIONS ===== */
+  @media (prefers-color-scheme: dark) {
+    .link, .player-container {
+      background: rgba(20, 30, 50, 0.5); /* Fallback oscuro */
+    }
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .profile-img-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
+  .profile-quote {
+    font-size: 14px;
+  }
+
+  .link {
+    padding: 16px 20px;
+  }
+}
+
+/* ===== PRELOADER & ANIMATIONS ===== */
 .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.6s ease;
-  }
-  
-  .preloader.fade-out {
-    opacity: 0;
-  }
-  
-  .spinner {
-    width: 50px;
-    height: 50px;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-    
-  #vanta-container {
-    opacity: 0;
-    transition: opacity 1.5s ease;
-  }
-  
-  #vanta-container.loaded {
-    opacity: 1;
-  }
-  
-  @keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000820;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+
+.preloader.fade-out {
+  opacity: 0;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}

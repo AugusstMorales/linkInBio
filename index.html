@@ -2,86 +2,191 @@
 <html lang="en">
 
 <head>
+  <!-- Character encoding and viewport configuration -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Enhanced SEO Meta Tags -->
   <meta name="description"
-    content="Personal LinkTree for Augustt Morales, developer and creator. Explore my portfolio and socials.">
-  <meta name="keywords" content="Augustt Morales, LinkTree, developer, portfolio, social media">
+    content="Augustt Morales - Software Engineer & Mechatronics Student. Explore my GitHub projects, photography on Instagram, thoughts on X, and connect with me across platforms.">
+  <meta name="keywords" content="Augustt Morales, Software Engineer, Mechatronics, GitHub, Developer Portfolio, Programming, Technology, Instagram Photography, Social Media">
   <meta name="author" content="Augustt Morales">
-  <title>Augusst M. - LinkBio</title>
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="en">
+  
+  <!-- Branding and Identity -->
+  <title>Augustt Morales - Software Engineer & Developer Portfolio</title>
   <link rel="icon" type="image/x-icon" href="assets/Images/icos/linkbio.ico">
-
-  <!-- Open Graph / Twitter Cards (optimizados) -->
-  <meta property="og:title" content="Augusst M. - LinkBio">
+  <link rel="canonical" href="https://augusttmorales.com">
+  
+  <!-- Enhanced Open Graph Protocol for Social Media Sharing -->
+  <meta property="og:title" content="Augustt Morales - Software Engineer & Developer Portfolio">
   <meta property="og:description"
-    content="Discover Augustt Morales' software engineering portfolio and connect on Instagram, X, GitHub, and more.">
+    content="Software Engineer & Mechatronics Student passionate about development. Connect with me on GitHub, Instagram, X, and Threads.">
   <meta property="og:image" content="https://augusttmorales.com/assets/Images/profile/UserProfile.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://augusttmorales.com">
-  <meta property="og:type" content="website">
-
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Augustt Morales Portfolio">
+  <meta property="profile:first_name" content="Augustt">
+  <meta property="profile:last_name" content="Morales">
+  
+  <!-- Enhanced Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Augusst M. - LinkBio">
+  <meta name="twitter:site" content="@Augusst_morales">
+  <meta name="twitter:creator" content="@Augusst_morales">
+  <meta name="twitter:title" content="Augustt Morales - Software Engineer & Developer">
   <meta name="twitter:description"
-    content="Explore Augustt Morales' portfolio and follow on social media. Software engineer passionate about Linux and macOS.">
+    content="Software Engineer & Mechatronics Student. Explore my development journey, photography, and thoughts on technology.">
   <meta name="twitter:image" content="https://augusttmorales.com/assets/Images/profile/UserProfile.jpg">
-
-  <!-- Fonts & Icons -->
+  <meta name="twitter:image:alt" content="Augustt Morales - Software Engineer Profile Picture">
+  
+  <!-- Schema.org Structured Data for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Augustt Morales",
+    "jobTitle": "Software Engineer",
+    "description": "Software Engineer and Mechatronics Student",
+    "url": "https://augusttmorales.com",
+    "image": "https://augusttmorales.com/assets/Images/profile/UserProfile.jpg",
+    "sameAs": [
+      "https://github.com/AugusstMorales",
+      "https://www.instagram.com/augusst_morales/",
+      "https://x.com/Augusst_morales",
+      "https://www.threads.com/@augusst_morales"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    }
+  }
+  </script>
+  
+  <!-- External Resource Loading - Fonts and Icons -->
+  <!-- Font Awesome for consistent iconography across platforms -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Google Fonts for typography consistency -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Application Styles -->
   <link rel="stylesheet" href="css/global.css">
 </head>
 
 <body>
+  <!-- Loading Experience -->
+  <!-- Preloader provides smooth transition while resources load -->
   <div class="preloader">
     <div class="spinner"></div>
   </div>
 
+  <!-- Background Animation Container -->
+  <!-- Vanta.js creates immersive background experience -->
   <div id="vanta-container"></div>
 
+  <!-- Main Content Container -->
   <main class="container">
+    
+    <!-- Personal Brand Header -->
+    <!-- Profile section establishes personal brand and first impression -->
     <header class="profile">
       <div class="profile-img-container">
-        <img src="assets/Images/profile/ProfileUser.png" alt="Profile picture of Augustt Morales" class="profile-img">
+        <!-- Profile image with accessibility considerations -->
+        <img src="assets/Images/profile/ProfileUser.png" 
+             alt="Profile picture of Augustt Morales, Software Engineer" 
+             class="profile-img"
+             loading="lazy">
       </div>
+      <!-- Personal greeting with emoji for approachability -->
       <h1 class="profile-name">Hello everyone! 👋🏼</h1>
-      <p class="profile-quote">I’m Augusto Morales — a Software Engineer • Digital Designer •  Mechatronics Student.
+      <!-- Professional tagline defining identity and expertise -->
+      <p class="profile-quote">I'm Augusto Morales — a Software Engineer & Mechatronics Student.</p>
     </header>
 
+    <!-- Social Media & Professional Links -->
+    <!-- Link collection provides multiple touchpoints for engagement -->
     <section class="links">
-      <a href="https://github.com/AugusstMorales" target="_blank" rel="noopener noreferrer" class="link">
-        <div class="link-icon"><i class="fab fa-github"></i></div>
-        <span class="link-text">See what’s in development ...</span>
+      
+      <!-- GitHub Link - Professional Development Portfolio -->
+      <a href="https://github.com/AugusstMorales" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="link"
+         aria-label="Visit Augustt's GitHub profile to see development projects">
+        <div class="link-icon"><i class="fab fa-github" aria-hidden="true"></i></div>
+        <span class="link-text">See what's in development ...</span>
       </a>
-      <a href="https://www.instagram.com/augusst_morales/" target="_blank" rel="noopener noreferrer" class="link">
-        <div class="link-icon"><i class="fab fa-instagram"></i></div>
+      
+      <!-- Instagram Link - Visual Content and Photography -->
+      <a href="https://www.instagram.com/augusst_morales/" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="link"
+         aria-label="Follow Augustt on Instagram for photography and visual content">
+        <div class="link-icon"><i class="fab fa-instagram" aria-hidden="true"></i></div>
         <span class="link-text">Through the lens.</span>
       </a>
-      <a href="https://x.com/Augusst_morales" target="_blank" rel="noopener noreferrer" class="link">
-        <div class="link-icon"><i class="fa-brands fa-x-twitter"></i></div>
+      
+      <!-- X (Twitter) Link - Professional Thoughts and Industry Discussion -->
+      <a href="https://x.com/Augusst_morales" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="link"
+         aria-label="Follow Augustt on X for thoughts on technology and development">
+        <div class="link-icon"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></div>
         <span class="link-text">Thinking aloud.</span>
       </a>
-      <a href="https://www.threads.com/@augusst_morales" target="_blank" rel="noopener noreferrer" class="link">
-        <div class="link-icon"><i class="fa-brands fa-threads"></i></div>
-        <span class="link-text">Let’s talk.</span>
+      
+      <!-- Threads Link - Casual Conversation and Community Engagement -->
+      <a href="https://www.threads.com/@augusst_morales" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="link"
+         aria-label="Connect with Augustt on Threads for conversations">
+        <div class="link-icon"><i class="fa-brands fa-threads" aria-hidden="true"></i></div>
+        <span class="link-text">Let's talk.</span>
       </a>
+      
     </section>
 
-    <section class="soundcloud-player" aria-label="SoundCloud player">
+    <!-- Audio Content Integration -->
+    <!-- SoundCloud player adds multimedia dimension to personal brand -->
+    <section class="soundcloud-player" aria-label="SoundCloud music player">
       <div class="player-container">
-        <iframe width="100%" height="300" frameborder="no" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1589968831&color=%231a1a1a&auto_play=false&hide_related=true&show_comments=false"></iframe>
+        <!-- Embedded SoundCloud player with privacy-conscious settings -->
+        <iframe width="100%" 
+                height="300" 
+                frameborder="no" 
+                allow="autoplay"
+                title="Augustt Morales SoundCloud Playlist"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1589968831&color=%231a1a1a&auto_play=false&hide_related=true&show_comments=false">
+        </iframe>
       </div>
     </section>
 
+    <!-- Site Footer -->
+    <!-- Footer provides attribution and source code access -->
     <footer>
-      <p>From the Mind of August M. • <a href="https://github.com/AugusstMorales/linkInBio" class="footer-link">Get the
-          Code</a></p>
+      <p>From the Mind of August M. • 
+        <a href="https://github.com/AugusstMorales/linkInBio" 
+           class="footer-link"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="View source code on GitHub">Get the Code</a>
+      </p>
     </footer>
+    
   </main>
 
+  <!-- JavaScript Dependencies -->
+  <!-- Three.js for 3D graphics and animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+  <!-- Vanta.js for background visual effects -->
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js" defer></script>
+  <!-- Application JavaScript -->
   <script src="js/main.js" defer></script>
+  
 </body>
 
 </html>

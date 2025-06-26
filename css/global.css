@@ -1,21 +1,64 @@
-/* ===== ESTILOS GLOBALES - LIQUID GLASS ===== */
+/* ===== DESIGN SYSTEM FOUNDATION ===== */
+/* 
+ * Core design tokens following Apple's Human Interface Guidelines
+ * These variables define the visual language and ensure consistency
+ * across all components while enabling theme adaptability
+ */
 :root {
-  --glass-bg-light: rgba(255, 255, 255, 0.1); /* Más translúcido */
-  --glass-bg-dark: rgba(20, 30, 50, 0.2); /* Azul profundo inspirado en macOS */
-  --glass-border-light: rgba(255, 255, 255, 0.15);
-  --glass-border-dark: rgba(255, 255, 255, 0.05);
+  /* Glass Morphism Color Palette */
+  /* Ultra-subtle transparency values for authentic glass effect */
+  --glass-bg-light: rgba(255, 255, 255, 0.04);
+  --glass-bg-dark: rgba(255, 255, 255, 0.06);
+  --glass-border-light: rgba(255, 255, 255, 0.08);
+  --glass-border-dark: rgba(255, 255, 255, 0.12);
+  
+  /* Typography Color System */
+  /* High contrast ratios for accessibility compliance */
   --text-color-light: #ffffff;
   --text-color-dark: #e6e6ea;
   --secondary-text-light: #d0d0ff;
   --secondary-text-dark: #d6d6d6;
-  --shadow-light: 0 8px 28px rgba(0, 10, 30, 0.15);
-  --shadow-dark: 0 8px 28px rgba(0, 20, 50, 0.3);
-  --blur: 1.2em; /* Desenfoque más intenso */
-  --highlight: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(100, 150, 255, 0.25) 50%, rgba(255, 255, 255, 0.05) 100%);
-  --highlight-secondary: linear-gradient(45deg, rgba(100, 150, 255, 0.2), rgba(255, 255, 255, 0.1));
+  
+  /* Elevation System */
+  /* Layered shadows creating depth hierarchy */
+  --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-dark: 0 8px 25px rgba(0, 0, 0, 0.12);
+  --shadow-elevated: 0 12px 30px rgba(0, 0, 0, 0.18);
+  
+  /* Blur Intensity Scale */
+  /* Optimized for performance while maintaining visual quality */
+  --blur-subtle: 12px;
+  --blur-intense: 16px;
+  
+  /* Liquid Glass Gradient System */
+  /* Multi-layered gradients creating realistic glass refraction */
+  --liquid-highlight: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.02) 100%);
+  
+  --liquid-glow: radial-gradient(circle at 50% 0%, 
+    rgba(255, 255, 255, 0.06) 0%, 
+    rgba(255, 255, 255, 0.02) 60%,
+    transparent 100%);
+    
+  --liquid-ripple: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.04) 30%,
+    transparent 60%);
+  
+  /* Animation Timing Functions */
+  /* Apple's preferred easing curves for natural motion */
+  --ease-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-swift: cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-/* Tema claro */
+/* ===== ADAPTIVE COLOR SCHEME ===== */
+/* 
+ * Automatic theme switching based on user's system preference
+ * Provides seamless experience across light and dark environments
+ */
 @media (prefers-color-scheme: light) {
   :root {
     --glass-bg: var(--glass-bg-light);
@@ -26,7 +69,6 @@
   }
 }
 
-/* Tema oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
     --glass-bg: var(--glass-bg-dark);
@@ -37,27 +79,53 @@
   }
 }
 
-/* Reset Apple-like */
+/* ===== FOUNDATION RESET ===== */
+/* 
+ * Apple-inspired reset providing clean foundation
+ * Optimized for consistent rendering across all platforms
+ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Apple's preferred font stack with system fallbacks */
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  
+  /* Typography Enhancement */
+  /* Ensures crisp text rendering on all displays */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
+/* ===== CORE LAYOUT SYSTEM ===== */
+/* 
+ * Flexible container system providing optimal viewing experience
+ * Centered layout with responsive constraints
+ */
 body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  /* Base background ensuring consistency */
   background-color: #111;
   color: var(--text-color);
+  
+  /* Prevent horizontal scrolling issues */
   overflow-x: hidden;
+  
+  /* Enable hardware acceleration for smooth animations */
+  transform: translateZ(0);
 }
 
-/* Fondo animado */
+/* ===== IMMERSIVE BACKGROUND SYSTEM ===== */
+/* 
+ * Vanta.js background container with optimized loading
+ * Provides depth without affecting performance
+ */
 #vanta-container {
   position: fixed;
   top: 0;
@@ -65,38 +133,71 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: #000;
+  
+  /* Base fallback background */
+  background: linear-gradient(135deg, #000 0%, #1a1a2e 100%);
+  
+  /* Smooth reveal animation */
   opacity: 0;
-  transition: opacity 1.5s ease;
+  transition: opacity 1.5s var(--ease-spring);
+  
+  /* Performance optimization */
+  will-change: opacity;
 }
 
 #vanta-container.loaded {
   opacity: 1;
 }
 
-/* Contenedor principal */
+/* ===== MAIN CONTENT CONTAINER ===== */
+/* 
+ * Primary content wrapper with perspective for 3D transforms
+ * Optimized for mobile-first responsive design
+ */
 .container {
   width: 100%;
   max-width: 550px;
   padding: 24px;
   z-index: 2;
-  perspective: 1500px; /* Profundidad aumentada */
+  
+  /* Enable 3D transformation context */
+  perspective: 1500px;
+  perspective-origin: center center;
 }
 
-/* Profile section */
+/* ===== PERSONAL BRAND SECTION ===== */
+/* 
+ * Profile header establishing visual hierarchy
+ * Centered layout with careful spacing rhythm
+ */
 .profile {
   text-align: center;
   margin-bottom: 32px;
+  
+  /* Subtle entrance animation */
+  animation: profileFadeIn 0.8s var(--ease-spring) forwards;
 }
 
+/* Profile Image System */
+/* Circular image container with glass border treatment */
 .profile-img-container {
   width: 135px;
   height: 135px;
   margin: 0 auto 16px;
+  
+  /* Perfect circle with overflow management */
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  
+  /* Subtle glass border */
   border: 1px solid var(--glass-border);
+  
+  /* Gentle shadow for depth */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  /* Performance optimization */
+  transform: translateZ(0);
 }
 
 .profile-img {
@@ -104,13 +205,27 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  
+  /* Smooth scaling on hover */
+  transition: transform 0.3s var(--ease-spring);
 }
 
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* Typography System */
+/* Hierarchical text styling following Apple's guidelines */
 .profile-name {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 8px;
+  
+  /* Improved letter spacing for readability */
   letter-spacing: -0.5px;
+  
+  /* Subtle text enhancement */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .profile-quote {
@@ -119,46 +234,93 @@ body {
   line-height: 1.5;
   max-width: 320px;
   margin: 0 auto;
+  
+  /* Balanced typography spacing */
+  font-weight: 400;
+  letter-spacing: 0.1px;
 }
 
-/* Links (estilo Liquid Glass macOS 26 mejorado) */
+/* ===== LIQUID GLASS NAVIGATION SYSTEM ===== */
+/* 
+ * Advanced glass morphism implementation
+ * Combines backdrop filters with layered effects for authentic glass appearance
+ */
 .links {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Más espaciado para elegancia */
+  gap: 18px;
+  
+  /* Staggered animation container */
+  animation: linksContainer 0.6s var(--ease-spring) forwards;
 }
 
+/* Primary Link Component */
+/* Multi-layered glass effect with performance optimization */
 .link {
+  /* Glass Foundation */
+  /* Ultra-transparent base with backdrop filtering */
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(var(--blur-subtle)) saturate(1.1);
+  -webkit-backdrop-filter: blur(var(--blur-subtle)) saturate(1.1);
+  
+  /* Structural Design */
+  /* Rounded corners following Apple's design language */
   border: 1px solid var(--glass-border);
-  border-radius: 20px; /* Bordes más redondeados */
+  border-radius: 20px;
   padding: 18px 22px;
+  
+  /* Layout Configuration */
   display: flex;
   align-items: center;
   text-decoration: none;
   color: var(--text-color);
-  box-shadow: var(--shadow);
-  transform: translateZ(15px);
   position: relative;
   overflow: hidden;
-  transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+  
+  /* Depth System */
+  /* Layered shadows creating realistic elevation */
+  box-shadow: 
+    var(--shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  
+  /* 3D Transform Preparation */
+  /* Optimized for smooth animations */
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  
+  /* Smooth Transitions */
+  /* Natural motion curves for organic feel */
+  transition: all 0.4s var(--ease-spring);
+  will-change: transform, background, box-shadow;
 }
 
+/* Glass Effect Layers */
+/* Pseudo-elements creating realistic glass refraction */
+
+/* Top Highlight Layer */
 .link::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: var(--highlight);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  
+  /* Radial highlight simulating light refraction */
+  background: var(--liquid-glow);
   opacity: 0;
-  transform: rotate(45deg);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  
+  /* Smooth reveal animation */
+  transition: all 0.5s var(--ease-bounce);
   pointer-events: none;
+  border-radius: 20px 20px 0 0;
+  
+  /* Initial transform for animation */
+  transform: translateY(-2px) scaleY(0.8);
 }
 
+/* Ripple Effect Layer */
 .link::after {
   content: '';
   position: absolute;
@@ -166,32 +328,112 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--highlight-secondary);
+  
+  /* Dynamic ripple gradient */
+  background: var(--liquid-ripple);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  
+  /* Subtle rotation for organic feel */
+  transform: scale(0.9) rotate(-1deg);
+  transition: all 0.6s var(--ease-spring);
   pointer-events: none;
+  border-radius: 20px;
 }
 
+/* ===== INTERACTIVE STATES ===== */
+/* 
+ * Hover and active states providing tactile feedback
+ * Subtle transformations maintaining elegance
+ */
+
+/* Hover State - Glass Activation */
+.link:hover {
+  /* Gentle lift with micro-rotation */
+  transform: translateY(-3px) translateZ(8px) rotateX(0.5deg);
+  
+  /* Enhanced glass effect */
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  
+  /* Elevated shadow system */
+  box-shadow: 
+    var(--shadow-elevated),
+    0 4px 12px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    
+  /* Intensified backdrop filter */
+  backdrop-filter: blur(var(--blur-intense)) saturate(1.3) brightness(1.05);
+  -webkit-backdrop-filter: blur(var(--blur-intense)) saturate(1.3) brightness(1.05);
+}
+
+/* Hover Effect Layers */
 .link:hover::before {
-  opacity: 0.45;
-  transform: rotate(45deg) translate(25%, 25%);
+  opacity: 0.4;
+  transform: translateY(-1px) scaleY(1.1);
 }
 
 .link:hover::after {
-  opacity: 0.3;
+  opacity: 0.2;
+  transform: scale(1.05) rotate(0.5deg);
 }
 
-.link:hover {
-  transform: translateY(-4px) translateZ(30px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 36px rgba(0, 20, 50, 0.35);
+/* Active State - Touch Feedback */
+.link:active {
+  /* Quick compression for tactile response */
+  transform: translateY(-1px) translateZ(3px) scale(0.98);
+  transition: all 0.15s var(--ease-bounce);
 }
 
-/* Efecto de inclinación basado en el cursor */
-.link[data-tilt] {
-  transition: transform 0.2s ease;
+/* ===== STAGGERED ENTRANCE ANIMATIONS ===== */
+/* 
+ * Sequential reveal of navigation links
+ * Creates elegant, purposeful introduction
+ */
+.links .link {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: linkFadeIn 0.6s var(--ease-spring) forwards;
 }
 
+/* Staggered timing for natural flow */
+.links .link:nth-child(1) { animation-delay: 0.1s; }
+.links .link:nth-child(2) { animation-delay: 0.2s; }
+.links .link:nth-child(3) { animation-delay: 0.3s; }
+.links .link:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes linkFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes profileFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes linksContainer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== ICON SYSTEM ===== */
+/* 
+ * Consistent iconography with fluid animations
+ * Enhanced with depth and lighting effects
+ */
 .link-icon {
   width: 24px;
   height: 24px;
@@ -200,42 +442,85 @@ body {
   justify-content: center;
   margin-right: 16px;
   font-size: 18px;
-  transform: translateZ(10px);
-  transition: transform 0.4s ease;
+  
+  /* 3D positioning for depth */
+  transform: translateZ(2px);
+  
+  /* Subtle shadow for definition */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  
+  /* Smooth animation with bounce */
+  transition: all 0.4s var(--ease-bounce);
 }
 
 .link:hover .link-icon {
-  transform: translateZ(15px);
+  /* Enhanced 3D positioning with rotation */
+  transform: translateZ(6px) scale(1.05) rotate(2deg);
+  
+  /* Enhanced lighting effect */
+  filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.15));
 }
 
+/* ===== TYPOGRAPHY ENHANCEMENT ===== */
+/* 
+ * Link text with fluid motion and lighting
+ * Maintains readability while adding visual interest
+ */
 .link-text {
   font-weight: 500;
   font-size: 16px;
-  transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
+  
+  /* Subtle 3D positioning */
+  transform: translateZ(1px);
+  
+  /* Smooth transition for text effects */
+  transition: all 0.35s var(--ease-spring);
 }
 
 .link:hover .link-text {
-  color: #f5f5ff; /* Blanco azulado brillante */
-  transform: translateY(-1px) scale(1.02); /* Escalado sutil */
-  text-shadow: 0 0 6px rgba(100, 150, 255, 0.4); /* Brillo más pronunciado */
+  /* Enhanced text appearance */
+  color: #f8f9fa;
+  transform: translateZ(4px) translateY(-0.5px);
+  
+  /* Subtle glow effect */
+  text-shadow: 
+    0 0 6px rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  
+  /* Improved letter spacing for emphasis */
+  letter-spacing: 0.2px;
 }
 
-/* SoundCloud Player */
+/* ===== MEDIA PLAYER INTEGRATION ===== */
+/* 
+ * SoundCloud player with consistent glass morphism
+ * Maintains design language across all components
+ */
 .soundcloud-player {
   margin: 24px 0;
 }
 
 .player-container {
+  /* Glass morphism matching link system */
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(var(--blur-subtle)) saturate(1.5);
+  -webkit-backdrop-filter: blur(var(--blur-subtle)) saturate(1.5);
+  
+  /* Consistent border and shadow system */
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  
+  /* 3D positioning for depth hierarchy */
   transform: translateZ(10px);
   position: relative;
+  
+  /* Smooth interactive transitions */
+  transition: all 0.3s var(--ease-spring);
 }
 
+/* Player highlight layer */
 .player-container::before {
   content: '';
   position: absolute;
@@ -243,58 +528,93 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--highlight);
+  background: var(--liquid-highlight);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s var(--ease-spring);
   pointer-events: none;
 }
 
+/* Player hover effects */
+.player-container:hover {
+  transform: translateZ(20px);
+  backdrop-filter: blur(var(--blur-intense)) saturate(2);
+  -webkit-backdrop-filter: blur(var(--blur-intense)) saturate(2);
+}
+
 .player-container:hover::before {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .player-container iframe {
   width: 100%;
   border: none;
+  display: block;
 }
 
-/* Footer */
+/* ===== FOOTER SYSTEM ===== */
+/* 
+ * Minimal footer maintaining visual hierarchy
+ * Subtle styling supporting overall design
+ */
 footer {
   margin-top: 32px;
   text-align: center;
   font-size: 14px;
   color: var(--secondary-text);
+  
+  /* Subtle entrance animation */
+  animation: footerFadeIn 0.6s var(--ease-spring) 0.8s forwards;
+  opacity: 0;
+}
+
+@keyframes footerFadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 .footer-link {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
+  transition: all 0.2s var(--ease-spring);
 }
 
 .footer-link:hover {
   text-decoration: underline;
+  color: #f8f9fa;
 }
 
-/* Respaldo para navegadores sin backdrop-filter */
-@supports not (backdrop-filter: blur(1.2em)) {
+/* ===== PROGRESSIVE ENHANCEMENT ===== */
+/* 
+ * Fallback support for browsers without backdrop-filter
+ * Ensures consistent experience across all platforms
+ */
+@supports not (backdrop-filter: blur(12px)) {
   .link, .player-container {
-    background: rgba(255, 255, 255, 0.08); /* Fallback claro */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   @media (prefers-color-scheme: dark) {
     .link, .player-container {
-      background: rgba(20, 30, 50, 0.5); /* Fallback oscuro */
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
   }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE DESIGN SYSTEM ===== */
+/* 
+ * Mobile-optimized adjustments maintaining design integrity
+ * Proportional scaling for optimal touch targets
+ */
 @media (max-width: 600px) {
   .container {
     padding: 20px;
   }
 
+  /* Optimized profile sizing for mobile */
   .profile-img-container {
     width: 100px;
     height: 100px;
@@ -306,45 +626,113 @@ footer {
 
   .profile-quote {
     font-size: 14px;
+    max-width: 280px;
   }
 
+  /* Maintained touch targets */
   .link {
-    padding: 16px 20px;
+    padding: 18px 22px;
+    border-radius: 20px;
+  }
+  
+  .link-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    margin-right: 16px;
   }
 }
 
-/* ===== PRELOADER & ANIMATIONS ===== */
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+/* 
+ * Reduced motion support for accessibility compliance
+ * Maintains functionality while respecting user preferences
+ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .link:hover {
+    transform: translateY(-2px);
+  }
+  
+  #vanta-container {
+    animation: none;
+  }
+}
+
+/* ===== LOADING EXPERIENCE ===== */
+/* 
+ * Elegant preloader ensuring smooth initial experience
+ * Branded loading animation matching overall aesthetic
+ */
 .preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000820;
+  
+  /* Rich gradient background */
+  background: linear-gradient(135deg, #000820 0%, #1a1a2e 100%);
+  
+  /* Centered loader positioning */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: opacity 0.6s ease;
+  
+  /* Smooth fade-out transition */
+  transition: opacity 0.6s var(--ease-spring);
 }
 
 .preloader.fade-out {
   opacity: 0;
 }
 
+/* Elegant spinner design */
 .spinner {
   width: 50px;
   height: 50px;
   border: 3px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   border-top-color: #fff;
+  
+  /* Smooth rotation animation */
   animation: spin 1s ease-in-out infinite;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to { 
+    transform: rotate(360deg); 
+  }
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; transform: translateY(0); }
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* 
+ * Hardware acceleration hints for smooth animations
+ * Optimized rendering performance across devices
+ */
+
+/* Enable GPU acceleration for key elements */
+.link,
+.profile-img,
+.player-container,
+#vanta-container {
+  will-change: transform;
+}
+
+/* Optimize font rendering */
+.profile-name,
+.link-text {
+  font-display: swap;
+  text-rendering: optimizeSpeed;
+}
+
+/* Containment for performance */
+.container {
+  contain: layout style paint;
 }
